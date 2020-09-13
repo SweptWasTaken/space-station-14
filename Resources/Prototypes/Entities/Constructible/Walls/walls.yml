@@ -170,22 +170,6 @@
     base: ice
 
 - type: entity
-  id: metal_wall
-  name: metal wall
-  parent: base_wall
-  components:
-  - type: Sprite
-    sprite: Constructible/Structures/Walls/metal.rsi
-  - type: Icon
-    sprite: Constructible/Structures/Walls/metal.rsi
-  - type: Destructible
-    deadThreshold: 300
-    spawnOnDestroy: Girder
-  - type: IconSmooth
-    key: walls
-    base: metal
-
-- type: entity
   id: plasma_wall
   name: plasma wall
   parent: base_wall
