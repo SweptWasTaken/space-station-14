@@ -223,7 +223,6 @@
   parent: base_wall
   components:
   - type: Sprite
-    color: "#889192"
     sprite: Constructible/Structures/Walls/solid.rsi
   - type: Icon
     sprite: Constructible/Structures/Walls/solid.rsi
@@ -291,7 +290,6 @@
   parent: base_wall
   components:
   - type: Sprite
-    color: "#889192"
     sprite: Constructible/Structures/Walls/solid.rsi
   - type: Icon
     sprite: Constructible/Structures/Walls/solid.rsi
