@@ -14,7 +14,6 @@
   - type: Sprite
     netsync: false
     drawdepth: Walls
-
   - type: Collidable
     shapes:
     - !type:PhysShapeAabb
@@ -34,7 +33,6 @@
   - type: SnapGrid
     offset: Center
   - type: Airtight
-
   - type: IconSmooth
     key: walls
     base: solid

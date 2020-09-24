@@ -92,9 +92,6 @@
     sprite: Constructible/Misc/furniture.rsi
     state: comfychair_preview
 
-
-
-
 - type: entity
   name: wooden chair
   id: ChairWood
@@ -127,3 +124,30 @@
     resistances: metallicResistances
   placement:
     mode: SnapgridCenter
+
+- type: entity
+  name: grille
+  id: Grille
+  description:
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Collidable
+    shapes:
+    - !type:PhysShapeAabb
+      layer:
+      - Opaque
+      - Impassable
+      - MobImpassable
+      - VaultImpassable
+      - SmallImpassable
+  - type: Destructible
+    deadThreshold: 50
+    spawnOnDestroy: SteelSheet1
+  - type: Sprite
+    texture: Constructible/Structures/Walls/grille.png
+    drawdepth: Walls
+  - type: Anchorable
+  - type: Pullable

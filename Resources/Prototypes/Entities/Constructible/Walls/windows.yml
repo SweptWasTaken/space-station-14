@@ -15,7 +15,6 @@
     netsync: false
     drawdepth: WallTops
     sprite: Constructible/Structures/Windows/window.rsi
-
   - type: Collidable
     shapes:
     - !type:PhysShapeAabb
@@ -45,3 +44,56 @@
   - type: Window
     base: rwindow
 
+### TG WINDOWS ###
+
+- type: entity
+  id: base_glasswall
+  name: baseglasswall
+  description:
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: RCDDeconstructWhitelist
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    netsync: false
+    drawdepth: WallTops
+  - type: Collidable
+    shapes:
+    - !type:PhysShapeAabb
+      layer:
+      - Opaque
+      - Impassable
+      - MobImpassable
+      - VaultImpassable
+      - SmallImpassable
+  - type: Destructible
+    deadThreshold: 50
+    resistances: metallicResistances
+  - type: SnapGrid
+    offset: Center
+  - type: Airtight
+
+- type: entity
+  id: glass_wall
+  name: glass
+  parent: base_glasswall
+  components:
+  - type: Sprite
+    sprite: Constructible/Structures/Walls/glass.rsi
+  - type: IconSmooth
+    key: walls
+    base: glass
+
+- type: entity
+  id: rglass_wall
+  name: reinforced glass
+  parent: base_glasswall
+  components:
+  - type: Sprite
+    sprite: Constructible/Structures/Walls/rglass.rsi
+  - type: IconSmooth
+    key: walls
+    base: rglass
