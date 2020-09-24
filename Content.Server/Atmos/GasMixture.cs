@@ -9,8 +9,6 @@ using Content.Server.Interfaces;
 using Content.Shared.Atmos;
 using Robust.Shared.GameObjects.Systems;
 using Robust.Shared.Interfaces.Serialization;
-using Robust.Shared.IoC;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.ViewVariables;
 
@@ -511,7 +509,7 @@ namespace Content.Server.Atmos
                 if (!doReaction)
                     continue;
 
-                reaction = prototype.React(this, holder, _atmosphereSystem.EventBus);
+                reaction = prototype.React(this, holder, _atmosphereSystem.GridTileLookupSystem);
                 if(reaction.HasFlag(ReactionResult.StopReactions))
                     break;
             }

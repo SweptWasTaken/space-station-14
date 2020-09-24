@@ -10,7 +10,6 @@ using Content.Server.Utility;
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
 using Content.Shared.Maps;
-using Content.Shared.Utility;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects.EntitySystems;
 using Robust.Server.GameObjects.EntitySystems.TileLookup;
@@ -93,6 +92,9 @@ namespace Content.Server.Atmos
         public Hotspot Hotspot;
 
         private AtmosDirection _pressureDirection;
+
+        // I'm assuming there's a good reason the original variable was made private, but this information is also important.
+        public AtmosDirection PressureDirectionForDebugOverlay => _pressureDirection;
 
         [ViewVariables, UsedImplicitly]
         private int PressureDirectionInt => (int)_pressureDirection;
@@ -819,8 +821,14 @@ namespace Content.Server.Atmos
 
             if (tileRef == null) return;
 
-            _gridAtmosphereComponent.Owner.EntityManager.
-                EventBus.QueueEvent(EventSource.Local, new FireActEvent(Hotspot.Temperature, Hotspot.Volume));
+            foreach (var entity in tileRef?.GetEntitiesInTileFast(_gridTileLookupSystem))
+            {
+                foreach (var fireAct in entity.GetAllComponents<IFireAct>())
+                {
+
+                    fireAct.FireAct(Hotspot.Temperature, Hotspot.Volume);
+                }
+            }
         }
 
         private bool ConsiderSuperconductivity()
