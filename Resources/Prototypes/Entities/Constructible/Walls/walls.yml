@@ -14,6 +14,8 @@
   - type: Sprite
     netsync: false
     drawdepth: Walls
+  - type: Icon
+    state: full
   - type: Collidable
     shapes:
     - !type:PhysShapeAabb
@@ -88,7 +90,6 @@
     key: walls
     base: clown
 
-
 - type: entity
   id: cult_wall
   name: cult wall
@@ -140,7 +141,6 @@
     key: walls
     base: diamond
 
-
 - type: entity
   id: gold_wall
   name: gold wall
@@ -176,26 +176,6 @@
     base: ice
 
 - type: entity
-<<<<<<< HEAD
-=======
-  id: metal_wall
-  name: metal wall
-  parent: base_wall
-  components:
-  - type: Sprite
-    sprite: Constructible/Structures/Walls/metal.rsi
-  - type: Icon
-    sprite: Constructible/Structures/Walls/metal.rsi
-  - type: Destructible
-    deadThreshold: 300
-    spawnOnDestroy: Girder
-    resistances: metallicResistances
-  - type: IconSmooth
-    key: walls
-    base: metal
-
-- type: entity
->>>>>>> master
   id: plasma_wall
   name: plasma wall
   parent: base_wall
