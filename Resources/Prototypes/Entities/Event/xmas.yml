@@ -1,0 +1,203 @@
+- type: entity
+  id: XmasTree
+  name: xmas tree
+  description: Keeps the air in and the greytide out.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: RCDDeconstructWhitelist
+  - type: Clickable
+  - type: Sprite
+    drawdepth: Mobs
+    netsync: false
+    sprite: Event/tree.rsi
+    state: xmastree
+  - type: Physics
+    mass: 25
+    shapes:
+    - !type:PhysShapeAabb
+      bounds: "-1.3, -0.2, 0.29, 0.2"
+      layer:
+      - Opaque
+      - Impassable
+      - MobImpassable
+      - VaultImpassable
+      - SmallImpassable
+  - type: SnapGrid
+    offset: Center
+  - type: Damageable
+    resistances: metallicResistances
+  - type: Destructible
+    thresholds:
+      200:
+        behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            XmasTreeBroken:
+              min: 1
+              max: 1
+  - type: BreakableConstruction
+    node: XmasTreeBroken
+
+- type: entity
+  parent: XmasTree
+  id: XmasTreeBroken
+  name: xmas tree (broken)
+  description: Nice work, you've ruined christmas.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    netsync: false
+    color: "#889192"
+    sprite: Event/tree.rsi
+    state: xmastreegone
+  - type: Physics
+    mass: 25
+    shapes:
+    - !type:PhysShapeAabb
+  - type: Destructible
+    thresholds:
+      200:
+        behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            SteelSheet1:
+              min: 1
+              max: 1
+  - type: BreakableConstruction
+    node: girder
+
+- type: entity
+  name: emergency toolbox
+  parent: ToolboxBase
+  id: OldboxRed
+  description: A bright red toolbox, stocked with emergency tools.
+  components:
+  - type: Sprite
+    sprite: Event/oldbox_red.rsi
+    state: icon
+  - type: Item
+    sprite: Event/oldbox_red.rsi
+
+- type: entity
+  name: emergency toolbox
+  parent: ToolboxBase
+  id: OldboxBlue
+  description: An old, rusty blue toolbox, it looks robust.
+  components:
+  - type: Sprite
+    sprite: Event/oldbox_blue.rsi
+    state: icon
+  - type: Item
+    sprite: Event/oldbox_blue.rsi
+
+- type: entity
+  save: false
+  name: unusually large funny exotic cat
+  parent: MonkeyMob_Content
+  id: UnusuallyLargeFunnyExoticCat
+  description: I can't stop laughing!
+  suffix: AI
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: caracal_flop
+      sprite: Event/floppa.rsi
+  - type: Physics
+    anchored: false
+    mass: 50
+    shapes:
+    - !type:PhysShapeAabb
+      bounds: "-0.30,-0.25,0.40,0.25"
+      mask:
+      - Impassable
+      - MobImpassable
+      - VaultImpassable
+      - SmallImpassable
+      layer:
+      - Opaque
+      - MobImpassable
+  - type: Appearance
+    visuals:
+    - type: DamageStateVisualizer
+      normal: caracal_flop
+      dead: caracal_dead
+
+- type: entity
+  save: false
+  name: unusually armored funny exotic cat
+  parent: UnusuallyLargeFunnyExoticCat
+  id: UnusuallyLargeFunnyExoticCatMilitary
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: stanislav
+      sprite: Event/floppa.rsi
+  - type: Appearance
+    visuals:
+    - type: DamageStateVisualizer
+      normal: stanislav
+      dead: stanislav_dead
+
+- type: entity
+  save: false
+  name: cowrp
+  parent: MonkeyMob_Content
+  id: CowRp
+  description: cowrp
+  suffix: AI
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: cow
+      sprite: Event/cowrp.rsi
+  - type: Physics
+    anchored: false
+    mass: 50
+    shapes:
+    - !type:PhysShapeAabb
+      bounds: "-0.30,-0.25,0.40,0.25"
+      mask:
+      - Impassable
+      - MobImpassable
+      - VaultImpassable
+      - SmallImpassable
+      layer:
+      - Opaque
+      - MobImpassable
+  - type: Appearance
+    visuals:
+    - type: DamageStateVisualizer
+      normal: cow
+      dead: cow_dead
+
+- type: entity
+  save: false
+  name: cowrp wizard
+  parent: CowRp
+  id: CowRpWizard
+  description: UDDERS NATH!
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: Event/cowrp.rsi
+      state: wizard
+  - type: Appearance
+    visuals:
+    - type: DamageStateVisualizer
+      normal: wizard
+      dead: wizard_dead
