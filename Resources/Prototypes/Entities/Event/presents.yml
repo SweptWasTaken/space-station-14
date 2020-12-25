@@ -1,0 +1,64 @@
+- type: entity
+  id: PresentGreen
+  name: green present
+  parent: CrateGeneric
+  components:
+  - type: Sprite
+    sprite: Event/presents.rsi
+    layers:
+    - state: green
+    - state: wrapping-green
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: Icon
+    sprite: Event/presents.rsi
+    state: red
+  - type: Appearance
+    visuals:
+    - type: StorageVisualizer
+      state_open: wrapping-green
+      state_closed: green
+  - type: EntityStorage
+    Capacity: 500
+    CanWeldShut: false
+    closeSound: /Entities/Event/unwrap.ogg
+    openSound: /Entities/Event/unwrap.ogg
+
+- type: entity
+  id: PresentRed
+  name: red present
+  parent: PresentGreen
+  components:
+  - type: Sprite
+    sprite: Event/presents.rsi
+    layers:
+    - state: red
+    - state: wrapping-red
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: Icon
+    sprite: Event/presents.rsi
+    state: red
+  - type: Appearance
+    visuals:
+    - type: StorageVisualizer
+      state_open: wrapping-red
+      state_closed: red
+
+- type: entity
+  id: PresentYellow
+  name: yellow present
+  parent: PresentGreen
+  components:
+  - type: Sprite
+    sprite: Event/presents.rsi
+    layers:
+    - state: yellow
+    - state: wrapping-yellow
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: Icon
+    sprite: Event/presents.rsi
+    state: yellow
+  - type: Appearance
+    visuals:
+    - type: StorageVisualizer
+      state_open: wrapping-yellow
+      state_closed: yellow

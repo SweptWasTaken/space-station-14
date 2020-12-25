@@ -121,11 +121,17 @@
   - type: StorageFill
     contents:
       - name: Screwdriver
+        orGroup: Gr
       - name: Wrench
+        orGroup: Gro
       - name: Welder
+        orGroup: Grou
       - name: Crowbar
+        orGroup: Group
       - name: Multitool
+        orGroup: Groupp
       - name: Wirecutter
+        orGroup: Grouppp
       - name: ClothingHandsGlovesCombat
 
 - type: entity
@@ -151,7 +157,7 @@
       - name: GoldStack
         amount: 5
       - name: DrinkGoldenCup
-        prob: 0.05
+        prob: 0.99
         orGroup: CupOrGold
       - name: GoldStack
         orGroup: CupOrGold

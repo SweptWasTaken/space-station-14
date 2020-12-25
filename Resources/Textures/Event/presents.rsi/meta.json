@@ -8,23 +8,27 @@
   },
   "states": [
     {
-      "name": "1",
+      "name": "green",
       "directions": 1
     },
     {
-      "name": "2",
+      "name": "red",
       "directions": 1
     },
     {
-      "name": "3",
+      "name": "yellow",
       "directions": 1
     },
     {
-      "name": "4",
+      "name": "wrapping-green",
       "directions": 1
     },
     {
-      "name": "wrapping",
+      "name": "wrapping-red",
+      "directions": 1
+    },
+    {
+      "name": "wrapping-yellow",
       "directions": 1
     }
   ]
